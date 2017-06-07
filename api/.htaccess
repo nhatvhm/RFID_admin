@@ -1,0 +1,11 @@
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /
+
+# Make index.php handle any 404 errors.
+ErrorDocument 404 /api.php
+
+RewriteEngine on
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ /api.php?uri=$1&uid=$2&id=$3  [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ /api.php?uri=$1&id=$2  [L]
+RewriteRule ^([a-zA-Z0-9_-]+)$ /api.php?uri=$1  [L]
